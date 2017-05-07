@@ -1,0 +1,83 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="handler"
+            type="com.medias.perfectpitch.fragment.NavigationFragment" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/accent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/text_perfect"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="@string/all_perfect"
+                android:textColor="@color/background"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/text_pitch"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="2dp"
+                android:gravity="center_vertical"
+                android:text="@string/all_pitch"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/button_back"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:background="@drawable/sel_accent_dark"
+            android:onClick="@{handler::onBackPressed}"
+            android:padding="12dp"
+            android:scaleType="centerInside"
+            android:visibility="@{handler.backVisible ? View.VISIBLE : View.GONE}"
+            app:srcCompat="@drawable/btn_back" />
+
+        <ImageButton
+            android:id="@+id/button_options"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:background="@drawable/sel_accent_dark"
+            android:onClick="@{handler::onOptionsPressed}"
+            android:padding="12dp"
+            android:scaleType="centerInside"
+            android:visibility="@{handler.optionsVisible ? View.VISIBLE : View.GONE}"
+            app:srcCompat="@drawable/btn_menu" />
+
+        <ImageButton
+            android:id="@+id/button_close"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:background="@drawable/sel_accent_dark"
+            android:onClick="@{handler::onBackPressed}"
+            android:padding="12dp"
+            android:scaleType="centerInside"
+            android:visibility="@{handler.closeVisible ? View.VISIBLE : View.GONE}"
+            app:srcCompat="@drawable/btn_close" />
+
+    </FrameLayout>
+</layout>

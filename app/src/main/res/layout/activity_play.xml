@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="observable"
+            type="com.medias.perfectpitch.observable.Play" />
+
+        <variable
+            name="handler"
+            type="com.medias.perfectpitch.activity.PlayActivity" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background">
+
+        <fragment
+            android:id="@+id/fragment_action"
+            android:name="com.medias.perfectpitch.fragment.NavigationFragment"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_action"
+            tools:layout="@layout/fragment_action" />
+
+        <FrameLayout
+            android:id="@+id/layout_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/height_action"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_layout"
+            android:visibility="@{!observable.loading ? View.VISIBLE : View.GONE}">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@{observable.message}"
+                android:textAlignment="center"
+                android:textColor="@color/accent"
+                android:textSize="24sp" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:gravity="bottom"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/button_next"
+                    style="@style/standardButton"
+                    android:layout_weight="1"
+                    android:onClick="@{handler::onNextPressed}"
+                    android:text="@string/play_next"
+                    android:visibility="@{observable.next ? View.VISIBLE : View.GONE}" />
+
+                <Button
+                    android:id="@+id/button_skip"
+                    style="@style/standardButton"
+                    android:layout_weight="1"
+                    android:onClick="@{handler::onSkipPressed}"
+                    android:text="@string/play_skip"
+                    android:visibility="@{observable.skip ? View.VISIBLE : View.GONE}" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="96dp"
+                android:layout_gravity="bottom"
+                android:orientation="vertical"
+                android:visibility="@{observable.options ? View.VISIBLE : View.GONE}">
+
+                <!--<FrameLayout style="@style/line" />-->
+
+                <LinearLayout
+                    android:id="@+id/layout_options_top"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:weightSum="7">
+
+                    <Space
+                        style="@style/optionButton"
+                        android:layout_weight="0.5"
+                        android:background="@null" />
+
+                    <Button
+                        style="@style/optionButton"
+                        android:enabled="@{observable.activeMap[1]}"
+                        android:onClick="@{handler::onAnswerPressed}"
+                        android:text="@{observable.names[1]}" />
+
+                    <Button
+                        style="@style/optionButton"
+                        android:enabled="@{observable.activeMap[3]}"
+                        android:onClick="@{handler::onAnswerPressed}"
+                        android:text="@{observable.names[3]}" />
+
+                    <ImageButton
+                        style="@style/optionButton"
+                        android:onClick="@{handler::onReplayPressed}"
+                        android:padding="10dp"
+                        android:scaleType="centerInside"
+                        app:srcCompat="@drawable/btn_replay" />
+
+                    <Button
+                        style="@style/optionButton"
+                        android:enabled="@{observable.activeMap[6]}"
+                        android:onClick="@{handler::onAnswerPressed}"
+                        android:text="@{observable.names[6]}" />
+
+                    <Button
+                        style="@style/optionButton"
+                        android:enabled="@{observable.activeMap[8]}"
+                        android:onClick="@{handler::onAnswerPressed}"
+                        android:text="@{observable.names[8]}" />
+
+                    <Button
+                        style="@style/optionButton"
+                        android:enabled="@{observable.activeMap[10]}"
+                        android:onClick="@{handler::onAnswerPressed}"
+                        android:text="@{observable.names[10]}" />
+
+                    <Space
+                        style="@style/optionButton"
+                        android:layout_weight="0.5"
+                        android:background="@null" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_options_bottom"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:weightSum="7">
+
+                    <Button
+                        style="@style/optionButton"
+                        android:enabled="@{observable.activeMap[0]}"
+                        android:onClick="@{handler::onAnswerPressed}"
+                        android:text="@{observable.names[0]}" />
+
+                    <Button
+                        style="@style/optionButton"
+                        android:enabled="@{observable.activeMap[2]}"
+                        android:onClick="@{handler::onAnswerPressed}"
+                        android:text="@{observable.names[2]}" />
+
+                    <Button
+                        style="@style/optionButton"
+                        android:enabled="@{observable.activeMap[4]}"
+                        android:onClick="@{handler::onAnswerPressed}"
+                        android:text="@{observable.names[4]}" />
+
+                    <Button
+                        style="@style/optionButton"
+                        android:enabled="@{observable.activeMap[5]}"
+                        android:onClick="@{handler::onAnswerPressed}"
+                        android:text="@{observable.names[5]}" />
+
+                    <Button
+                        style="@style/optionButton"
+                        android:enabled="@{observable.activeMap[7]}"
+                        android:onClick="@{handler::onAnswerPressed}"
+                        android:text="@{observable.names[7]}" />
+
+                    <Button
+                        style="@style/optionButton"
+                        android:enabled="@{observable.activeMap[9]}"
+                        android:onClick="@{handler::onAnswerPressed}"
+                        android:text="@{observable.names[9]}" />
+
+                    <Button
+                        style="@style/optionButton"
+                        android:enabled="@{observable.activeMap[11]}"
+                        android:onClick="@{handler::onAnswerPressed}"
+                        android:text="@{observable.names[11]}" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center"
+                android:background="@drawable/progress_bar_background"
+                android:max="205"
+                android:progress="@{observable.progress}"
+                android:progressDrawable="@drawable/progress_bar" />
+
+            <ImageView
+                android:id="@+id/image_symbol"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_gravity="center"
+                android:scaleType="centerInside"
+                android:visibility="@{observable.correct || observable.incorrect ? View.VISIBLE : View.GONE}" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="8dp"
+                android:text="@{observable.score}"
+                android:textColor="@color/white"
+                android:textSize="40sp"
+                android:visibility="@{observable.correct || observable.incorrect ? View.GONE : View.VISIBLE}" />
+        </FrameLayout>
+
+        <ImageView
+            android:id="@+id/image_loader"
+            style="@style/loader"
+            android:visibility="@{observable.loading ? View.VISIBLE : View.GONE}"
+            app:srcCompat="@drawable/ic_spinner" />
+
+    </FrameLayout>
+</layout>

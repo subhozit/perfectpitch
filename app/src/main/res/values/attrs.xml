@@ -1,0 +1,19 @@
+<resources>
+
+    <declare-styleable name="ContentsViewItem">
+        <attr name="titleText" format="string" localization="suggested" />
+        <attr name="subtitleText" format="string" localization="suggested" />
+        <attr name="background" format="reference" />
+        <attr name="titleTextColor" format="color" />
+        <attr name="subtitleTextColor" format="color" />
+        <attr name="image" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="OptionsList">
+        <attr name="headerText" format="string" localization="suggested" />
+        <attr name="headerTextColor" format="color" />
+        <attr name="itemTextColor" format="color" />
+        <attr name="items" format="reference" />
+        <attr name="selected" format="integer" />
+    </declare-styleable>
+</resources>

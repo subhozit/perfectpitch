@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="observable"
+            type="com.medias.perfectpitch.observable.Instrument" />
+
+        <variable
+            name="handler"
+            type="com.medias.perfectpitch.activity.InstrumentActivity" />
+    </data>
+
+    <FrameLayout
+        android:id="@+id/activity_synth"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background">
+
+        <fragment
+            android:name="com.medias.perfectpitch.fragment.NavigationFragment"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_action"
+            tools:layout="@layout/fragment_action" />
+
+        <LinearLayout
+            android:id="@+id/layout_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/height_action"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_layout"
+            android:visibility="@{observable.loading ? View.GONE : View.VISIBLE}">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="36dp">
+
+                <TextView
+                    android:id="@+id/text_instrument"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="@{observable.tone}"
+                    android:textColor="@color/accent"
+                    android:textSize="20dp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="right">
+
+                    <ImageButton
+                        android:id="@+id/button_minus"
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/sel_background_accent"
+                        android:onClick="@{handler::onMinusPressed}"
+                        android:padding="8dp"
+                        android:scaleType="centerInside"
+                        app:srcCompat="@drawable/btn_minus" />
+
+                    <ImageButton
+                        android:id="@+id/button_plus"
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/sel_background_accent"
+                        android:onClick="@{handler::onPlusPressed}"
+                        android:padding="8dp"
+                        android:scaleType="centerInside"
+                        app:srcCompat="@drawable/btn_plus" />
+                </LinearLayout>
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_keyboard"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    style="@style/synthLight"
+                    android:onTouchListener="@{handler}"
+                    android:visibility="@{observable.visibilityMap[0] ? View.VISIBLE : View.GONE}" />
+
+                <ImageView
+                    style="@style/synthDark"
+                    android:onTouchListener="@{handler}"
+                    android:visibility="@{observable.visibilityMap[1] ? View.VISIBLE : View.GONE}" />
+
+                <ImageView
+                    style="@style/synthLight"
+                    android:onTouchListener="@{handler}"
+                    android:visibility="@{observable.visibilityMap[2] ? View.VISIBLE : View.GONE}" />
+
+                <ImageView
+                    style="@style/synthDark"
+                    android:onTouchListener="@{handler}"
+                    android:visibility="@{observable.visibilityMap[3] ? View.VISIBLE : View.GONE}" />
+
+                <ImageView
+                    style="@style/synthLight"
+                    android:onTouchListener="@{handler}"
+                    android:visibility="@{observable.visibilityMap[4] ? View.VISIBLE : View.GONE}" />
+
+                <ImageView
+                    style="@style/synthLight"
+                    android:onTouchListener="@{handler}"
+                    android:visibility="@{observable.visibilityMap[5] ? View.VISIBLE : View.GONE}" />
+
+                <ImageView
+                    style="@style/synthDark"
+                    android:onTouchListener="@{handler}"
+                    android:visibility="@{observable.visibilityMap[6] ? View.VISIBLE : View.GONE}" />
+
+                <ImageView
+                    style="@style/synthLight"
+                    android:onTouchListener="@{handler}"
+                    android:visibility="@{observable.visibilityMap[7] ? View.VISIBLE : View.GONE}" />
+
+                <ImageView
+                    style="@style/synthDark"
+                    android:onTouchListener="@{handler}"
+                    android:visibility="@{observable.visibilityMap[8] ? View.VISIBLE : View.GONE}" />
+
+                <ImageView
+                    style="@style/synthLight"
+                    android:onTouchListener="@{handler}"
+                    android:visibility="@{observable.visibilityMap[9] ? View.VISIBLE : View.GONE}" />
+
+                <ImageView
+                    style="@style/synthDark"
+                    android:onTouchListener="@{handler}"
+                    android:visibility="@{observable.visibilityMap[10] ? View.VISIBLE : View.GONE}" />
+
+                <ImageView
+                    style="@style/synthLight"
+                    android:onTouchListener="@{handler}"
+                    android:visibility="@{observable.visibilityMap[11] ? View.VISIBLE : View.GONE}" />
+
+                <ImageView
+                    style="@style/synthLight"
+                    android:onTouchListener="@{handler}"
+                    android:visibility="@{observable.visibilityMap[12] ? View.VISIBLE : View.GONE}" />
+
+                <ImageView
+                    style="@style/synthDark"
+                    android:onTouchListener="@{handler}"
+                    android:visibility="@{observable.visibilityMap[13] ? View.VISIBLE : View.GONE}" />
+
+                <ImageView
+                    style="@style/synthLight"
+                    android:onTouchListener="@{handler}"
+                    android:visibility="@{observable.visibilityMap[14] ? View.VISIBLE : View.GONE}" />
+
+                <ImageView
+                    style="@style/synthDark"
+                    android:onTouchListener="@{handler}"
+                    android:visibility="@{observable.visibilityMap[15] ? View.VISIBLE : View.GONE}" />
+
+                <ImageView
+                    style="@style/synthLight"
+                    android:onTouchListener="@{handler}"
+                    android:visibility="@{observable.visibilityMap[16] ? View.VISIBLE : View.GONE}" />
+
+                <ImageView
+                    style="@style/synthLight"
+                    android:onTouchListener="@{handler}"
+                    android:visibility="@{observable.visibilityMap[17] ? View.VISIBLE : View.GONE}" />
+
+                <ImageView
+                    style="@style/synthDark"
+                    android:onTouchListener="@{handler}"
+                    android:visibility="@{observable.visibilityMap[18] ? View.VISIBLE : View.GONE}" />
+
+                <ImageView
+                    style="@style/synthLight"
+                    android:onTouchListener="@{handler}"
+                    android:visibility="@{observable.visibilityMap[19] ? View.VISIBLE : View.GONE}" />
+
+                <ImageView
+                    style="@style/synthDark"
+                    android:onTouchListener="@{handler}"
+                    android:visibility="@{observable.visibilityMap[20] ? View.VISIBLE : View.GONE}" />
+
+                <ImageView
+                    style="@style/synthLight"
+                    android:onTouchListener="@{handler}"
+                    android:visibility="@{observable.visibilityMap[21] ? View.VISIBLE : View.GONE}" />
+
+                <ImageView
+                    style="@style/synthDark"
+                    android:onTouchListener="@{handler}"
+                    android:visibility="@{observable.visibilityMap[22] ? View.VISIBLE : View.GONE}" />
+
+                <ImageView
+                    style="@style/synthLight"
+                    android:onTouchListener="@{handler}"
+                    android:visibility="@{observable.visibilityMap[23] ? View.VISIBLE : View.GONE}" />
+
+                <ImageView
+                    style="@style/synthLight"
+                    android:onTouchListener="@{handler}"
+                    android:visibility="@{observable.visibilityMap[24] ? View.VISIBLE : View.GONE}" />
+
+                <ImageView
+                    style="@style/synthDark"
+                    android:onTouchListener="@{handler}"
+                    android:visibility="@{observable.visibilityMap[25] ? View.VISIBLE : View.GONE}" />
+
+                <ImageView
+                    style="@style/synthLight"
+                    android:onTouchListener="@{handler}"
+                    android:visibility="@{observable.visibilityMap[26] ? View.VISIBLE : View.GONE}" />
+
+                <ImageView
+                    style="@style/synthDark"
+                    android:onTouchListener="@{handler}"
+                    android:visibility="@{observable.visibilityMap[27] ? View.VISIBLE : View.GONE}" />
+
+                <ImageView
+                    style="@style/synthLight"
+                    android:onTouchListener="@{handler}"
+                    android:visibility="@{observable.visibilityMap[28] ? View.VISIBLE : View.GONE}" />
+
+                <ImageView
+                    style="@style/synthLight"
+                    android:onTouchListener="@{handler}"
+                    android:visibility="@{observable.visibilityMap[29] ? View.VISIBLE : View.GONE}" />
+
+                <ImageView
+                    style="@style/synthDark"
+                    android:onTouchListener="@{handler}"
+                    android:visibility="@{observable.visibilityMap[30] ? View.VISIBLE : View.GONE}" />
+
+                <ImageView
+                    style="@style/synthLight"
+                    android:onTouchListener="@{handler}"
+                    android:visibility="@{observable.visibilityMap[31] ? View.VISIBLE : View.GONE}" />
+
+                <ImageView
+                    style="@style/synthDark"
+                    android:onTouchListener="@{handler}"
+                    android:visibility="@{observable.visibilityMap[32] ? View.VISIBLE : View.GONE}" />
+
+                <ImageView
+                    style="@style/synthLight"
+                    android:onTouchListener="@{handler}"
+                    android:visibility="@{observable.visibilityMap[33] ? View.VISIBLE : View.GONE}" />
+
+                <ImageView
+                    style="@style/synthDark"
+                    android:onTouchListener="@{handler}"
+                    android:visibility="@{observable.visibilityMap[34] ? View.VISIBLE : View.GONE}" />
+
+                <ImageView
+                    style="@style/synthLight"
+                    android:onTouchListener="@{handler}"
+                    android:visibility="@{observable.visibilityMap[35] ? View.VISIBLE : View.GONE}" />
+
+                <ImageView
+                    style="@style/synthLight"
+                    android:onTouchListener="@{handler}"
+                    android:visibility="@{observable.visibilityMap[36] ? View.VISIBLE : View.GONE}" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/image_loader"
+            style="@style/loader"
+            android:visibility="@{observable.loading ? View.VISIBLE : View.GONE}"
+            app:srcCompat="@drawable/ic_spinner" />
+
+        <fragment
+            android:id="@+id/banner_ad"
+            android:name="com.medias.perfectpitch.fragment.PromoFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            tools:layout="@layout/fragment_banner_ad" />
+    </FrameLayout>
+</layout>

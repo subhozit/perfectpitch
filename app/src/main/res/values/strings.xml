@@ -1,0 +1,96 @@
+<resources>
+    <string name="app_name">Perfect Pitch</string>
+    <string name="all_perfect">perfect</string>
+    <string name="all_pitch">Pitch</string>
+    <string name="all_pitch_caps">PITCH</string>
+
+    <string name="play_next">Next</string>
+    <string name="play_skip">Skip</string>
+    <string name="play_replay">Replay</string>
+    <string name="play_begin">Let\'s start!\nIn this level, you\'ll master \n@notes.</string>
+    <string name="play_rehearse">Listen carefully.\nPlaying notes @notes.\n</string>
+    <string name="play_ask">Identify the note.\nIt\'s among @notes. </string>
+    <string name="play_correct">Correct! </string>
+    <string name="play_incorrect">Incorrect!\nThat was @correct.</string>
+    <string name="play_unlocked">Superb!\nYou have unlocked next level.\nIn this level, you\'ll master \n@notes.</string>
+    <string name="play_complete">Congratulations!\nYou have completed the training.</string>
+    <string name="play_demo_complete">Congratulations!\nYou have completed the limited training.\nFor complete training browse expansions.</string>
+
+    <string name="expansion_expansions">Expansions</string>
+    <string name="expansion_installed">Installed</string>
+    <string name="expansion_tones">Tones</string>
+    <string name="expansion_twelve_notes">Twelve Notes</string>
+    <string name="expansion_tones_info">The installed version is limited to Acoustic Piano tone.\nThis expansion let\'s you play instruments like Acoustic Guitar, Electric Guitar, Flute, Accordion, Dulcimer, Saxophone, Sitar, Strings and Violin.</string>
+    <string name="expansion_twelve_notes_info">The installed version is limited to training of four notes.\nThis expansion provides training on twelve notes.</string>
+
+    <string name="main_title">Hi! \nWhat would you like to do ?</string>
+    <string name="main_start_title">Start</string>
+    <string name="main_start_subtitle">Begin training</string>
+    <string name="main_synth_title">Synth</string>
+    <string name="main_synth_subtitle">Play virtual synth</string>
+    <string name="main_expansions_title">Expansions</string>
+    <string name="main_expansions_subtitle">Browse add-ons</string>
+
+    <string name="settings_title">Settings</string>
+    <string name="settings_tone_title">Tone</string>
+    <string name="settings_names_title">Key names</string>
+    <string name="settings_release_title">Sustain</string>
+    <string name="settings_order_title">Auto-play order</string>
+
+    <string-array name="names">
+        <item>Alphabets, Sharps</item>
+        <item>Alphabets, Flats</item>
+        <item>Numbers, Sharps</item>
+        <item>Numbers, Flats</item>
+    </string-array>
+
+    <string-array name="names_values">
+        <item>C,C#,D,D#,E,F,F#,G,G#,A,A#,B</item>
+        <item>C,Db,D,Eb,E,F,Gb,G,Ab,A,Bb,B</item>
+        <item>1,1#,2,2#,3,4,4#,5,5#,6,6#,7</item>
+        <item>1,2b,2,3b,3,4,5b,5,6b,6,7b,7</item>
+    </string-array>
+
+    <string-array name="release">
+        <item>500 ms</item>
+        <item>750 ms</item>
+        <item>1000 ms</item>
+        <item>1500 ms</item>
+    </string-array>
+
+    <integer-array name="release_values">
+        <item>500</item>
+        <item>750</item>
+        <item>1000</item>
+        <item>1500</item>
+    </integer-array>
+
+    <string-array name="tones">
+        <item>Acoustic Piano</item>
+        <item>Acoustic Guitar</item>
+        <item>Clean Guitar</item>
+        <item>Accordion</item>
+        <item>Dulcimer</item>
+        <item>Sax</item>
+        <item>Sitar</item>
+        <item>Strings Ensemble</item>
+        <item>Violin</item>
+        <item>Woodwind</item>
+    </string-array>
+
+    <string-array name="play_order">
+        <item>Forward</item>
+        <item>Backward</item>
+    </string-array>
+
+    <integer-array name="play_order_values">
+        <item>0</item>
+        <item>1</item>
+    </integer-array>
+
+
+    <!-- AdMob ad unit IDs -->
+    <string name="interstitial_unit_id">ca-app-pub-9375044640121192/3983228979</string>
+    <string name="banner_unit_id">ca-app-pub-9375044640121192/1169363373</string>
+
+</resources>

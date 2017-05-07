@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="handler"
+            type="com.medias.perfectpitch.activity.MainActivity" />
+    </data>
+
+    <FrameLayout
+        android:id="@+id/activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        tools:context="com.medias.perfectpitch.activity.MainActivity">
+
+        <ViewAnimator
+            android:id="@+id/view_animator"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <FrameLayout
+                android:id="@+id/layout_splash"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/image_icon"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="36dp"
+                    app:srcCompat="@drawable/ic_splash" />
+
+                <LinearLayout
+                    android:id="@+id/layout_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="72dp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/text_perfect"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="end"
+                        android:text="@string/all_perfect"
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/accent"
+                        android:textSize="40sp" />
+
+                    <TextView
+                        android:id="@+id/text_pitch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/all_pitch"
+                        android:textColor="@color/white"
+                        android:textSize="40sp" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/layout_menu"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <fragment
+                    android:id="@+id/fragment_action"
+                    android:name="com.medias.perfectpitch.fragment.NavigationFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_action"
+                    tools:layout="@layout/fragment_action" />
+
+                <LinearLayout
+                    android:id="@+id/layout_main"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/height_action"
+                    android:orientation="vertical"
+                    android:padding="@dimen/padding_layout">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="16dp"
+                        android:paddingTop="16dp"
+                        android:text="@string/main_title"
+                        android:textColor="@color/accent"
+                        android:textSize="@dimen/size_header" />
+
+                    <com.medias.perfectpitch.widget.ContentsViewItem
+                        android:id="@+id/item_start"
+                        style="@style/contentsViewItem"
+                        android:onClick="@{handler::onStartClicked}"
+                        app:image="@drawable/btn_start"
+                        app:subtitleText="@string/main_start_subtitle"
+                        app:titleText="@string/main_start_title" />
+
+                    <com.medias.perfectpitch.widget.ContentsViewItem
+                        android:id="@+id/item_synth"
+                        style="@style/contentsViewItem"
+                        android:onClick="@{handler::onSynthClicked}"
+                        app:image="@drawable/btn_synth"
+                        app:subtitleText="@string/main_synth_subtitle"
+                        app:titleText="@string/main_synth_title" />
+
+                    <com.medias.perfectpitch.widget.ContentsViewItem
+                        android:id="@+id/item_expansions"
+                        style="@style/contentsViewItem"
+                        android:onClick="@{handler::onExpansionsClicked}"
+                        app:image="@drawable/btn_expansions"
+                        app:subtitleText="@string/main_expansions_subtitle"
+                        app:titleText="@string/main_expansions_title" />
+
+                </LinearLayout>
+
+                <fragment
+                    android:id="@+id/banner_ad"
+                    android:name="com.medias.perfectpitch.fragment.PromoFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    tools:layout="@layout/fragment_banner_ad" />
+            </FrameLayout>
+
+        </ViewAnimator>
+
+
+    </FrameLayout>
+</layout>

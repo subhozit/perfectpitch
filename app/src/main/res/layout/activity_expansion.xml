@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="observable"
+            type="com.medias.perfectpitch.observable.Expansion" />
+
+        <variable
+            name="handler"
+            type="com.medias.perfectpitch.activity.ExpansionActivity" />
+    </data>
+
+    <FrameLayout
+        android:id="@+id/activity_synth"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:orientation="vertical">
+
+        <fragment
+            android:id="@+id/fragment_action"
+            android:name="com.medias.perfectpitch.fragment.NavigationFragment"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_action"
+            android:layout_gravity="top"
+            tools:layout="@layout/fragment_action" />
+
+        <LinearLayout
+            android:id="@+id/layout_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/fragment_action"
+            android:layout_marginTop="@dimen/height_action"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_layout">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="16dp"
+                android:paddingTop="8dp"
+                android:text="@string/expansion_expansions"
+                android:textColor="@color/accent"
+                android:textSize="@dimen/size_header" />
+
+            <com.medias.perfectpitch.widget.ContentsViewItem
+                android:id="@+id/item_twelve_notes"
+                style="@style/contentsViewItem"
+                android:onClick="@{observable.twelveNotesPurchased ? null : handler::onTwelveNotesPressed }"
+                app:image="@drawable/btn_expansions"
+                app:subtitleText="@{observable.twelveNotesSubtitle}"
+                app:titleText="@string/expansion_twelve_notes" />
+
+            <com.medias.perfectpitch.widget.ContentsViewItem
+                android:id="@+id/item_tones"
+                style="@style/contentsViewItem"
+                android:onClick="@{observable.tonesPurchased ? null : handler::onTonesPressed }"
+                app:image="@drawable/btn_expansions"
+                app:subtitleText="@{observable.tonesSubtitle}"
+                app:titleText="@string/expansion_tones" />
+        </LinearLayout>
+
+        <fragment
+            android:id="@+id/banner_ad"
+            android:name="com.medias.perfectpitch.fragment.PromoFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            tools:layout="@layout/fragment_banner_ad" />
+    </FrameLayout>
+
+</layout>

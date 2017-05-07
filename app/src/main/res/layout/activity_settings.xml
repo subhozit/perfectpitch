@@ -1,0 +1,143 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="observable"
+            type="com.medias.perfectpitch.observable.Settings" />
+
+        <variable
+            name="handler"
+            type="com.medias.perfectpitch.activity.SettingsActivity" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:orientation="vertical">
+
+        <fragment
+            android:id="@+id/fragment_action"
+            android:name="com.medias.perfectpitch.fragment.NavigationFragment"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_action"
+            tools:layout="@layout/fragment_action" />
+
+
+        <ViewAnimator
+            android:id="@+id/view_animator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/height_action"
+            android:displayedChild="@{observable.displayedChild}"
+            android:padding="@dimen/padding_layout">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="16dp"
+                    android:paddingTop="8dp"
+                    android:text="@string/settings_title"
+                    android:textColor="@color/accent"
+                    android:textSize="@dimen/size_header" />
+
+                <com.medias.perfectpitch.widget.ContentsViewItem
+                    android:id="@+id/item_tone"
+                    style="@style/contentsViewItem"
+                    android:onClick="@{handler::onToneClicked}"
+                    app:image="@drawable/btn_tone"
+                    app:subtitleText="@{observable.selectedTone}"
+                    app:titleText="@string/settings_tone_title" />
+
+                <com.medias.perfectpitch.widget.ContentsViewItem
+                    android:id="@+id/item_names"
+                    style="@style/contentsViewItem"
+                    android:onClick="@{handler::onNamesClicked}"
+                    android:visibility="@{observable.synthSettings ? View.GONE : View.VISIBLE}"
+                    app:image="@drawable/btn_names"
+                    app:subtitleText="@{observable.selectedNaming}"
+                    app:titleText="@string/settings_names_title" />
+
+                <com.medias.perfectpitch.widget.ContentsViewItem
+                    android:id="@+id/item_release"
+                    style="@style/contentsViewItem"
+                    android:onClick="@{handler::onReleaseClicked}"
+                    android:visibility="@{observable.synthSettings ? View.GONE : View.VISIBLE}"
+                    app:image="@drawable/btn_release"
+                    app:subtitleText="@{observable.selectedRelease}"
+                    app:titleText="@string/settings_release_title" />
+
+                <com.medias.perfectpitch.widget.ContentsViewItem
+                    android:id="@+id/item_order"
+                    style="@style/contentsViewItem"
+                    android:onClick="@{handler::onOrderClicked}"
+                    android:visibility="@{observable.synthSettings ? View.GONE : View.VISIBLE}"
+                    app:image="@drawable/btn_direction"
+                    app:subtitleText="@{observable.selectedAutoPlayOrder}"
+                    app:titleText="@string/settings_order_title" />
+            </LinearLayout>
+
+            <com.medias.perfectpitch.widget.OptionsList
+                android:id="@+id/list_tones"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:onItemClickListener="@{handler}"
+                app:headerText="@string/settings_tone_title"
+                app:itemTextColor="@color/grey"
+                app:items="@array/tones"
+                app:selected="@{observable.selectedToneId}" />
+
+            <com.medias.perfectpitch.widget.OptionsList
+                android:id="@+id/list_names"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:onItemClickListener="@{handler}"
+                app:headerText="@string/settings_names_title"
+                app:itemTextColor="@color/grey"
+                app:items="@array/names"
+                app:selected="@{observable.selectedNamingId}" />
+
+            <com.medias.perfectpitch.widget.OptionsList
+                android:id="@+id/list_release"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:onItemClickListener="@{handler}"
+                app:headerText="@string/settings_release_title"
+                app:itemTextColor="@color/grey"
+                app:items="@array/release"
+                app:selected="@{observable.selectedReleaseId}" />
+
+            <com.medias.perfectpitch.widget.OptionsList
+                android:id="@+id/list_order"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:onItemClickListener="@{handler}"
+                app:headerText="@string/settings_order_title"
+                app:itemTextColor="@color/grey"
+                app:items="@array/play_order"
+                app:selected="@{observable.selectedAutoPlayOrderId}" />
+
+        </ViewAnimator>
+
+
+        <fragment
+            android:id="@+id/banner_ad"
+            android:name="com.medias.perfectpitch.fragment.PromoFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            tools:layout="@layout/fragment_banner_ad" />
+    </FrameLayout>
+</layout>
+
